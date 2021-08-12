@@ -61,10 +61,12 @@ function ProductList() {
         price={datas[2].price}
         onClick={() => setDetailProduct(datas[2])}
       />
-      <ProductDetail
-        detailProduct={detailProduct}
-        setDetailProduct={setDetailProduct}
-      />
+      {detailProduct !== null && (
+        <ProductDetail
+          detailProduct={detailProduct}
+          setDetailProduct={setDetailProduct}
+        />
+      )}
     </ListComponent>
   );
 }
