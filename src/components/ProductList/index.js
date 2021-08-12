@@ -43,24 +43,10 @@ function ProductList() {
 
   return (
     <ListComponent>
-      <ProductInfo
-        img={datas[0].img}
-        name={datas[0].name}
-        price={datas[0].price}
-        onClick={() => setDetailProduct(datas[0])}
-      />
-      <ProductInfo
-        img={datas[1].img}
-        name={datas[1].name}
-        price={datas[1].price}
-        onClick={() => setDetailProduct(datas[1])}
-      />
-      <ProductInfo
-        img={datas[2].img}
-        name={datas[2].name}
-        price={datas[2].price}
-        onClick={() => setDetailProduct(datas[2])}
-      />
+      {datas.map((data) => (
+        <ProductInfo data={data} onClick={() => setDetailProduct(data)} />
+      ))}
+
       {detailProduct !== null && (
         <ProductDetail
           detailProduct={detailProduct}

@@ -12,10 +12,27 @@ const FooterComponent = styled.div`
   background-color: skyblue;
   color: white;
   font-size: 20px;
+  & > button {
+    width: 40px;
+    height: 30px;
+    margin: 0 4px;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+  }
+  & > button:hover {
+    opacity: 0.8;
+  }
 `;
 
-function Footer() {
-  return <FooterComponent>Footer 입니다.</FooterComponent>;
+function Footer({ setPage }) {
+  return (
+    <FooterComponent>
+      <span>Footer 입니다.</span>
+      <button onClick={() => setPage("list")}>List</button>
+      <button onClick={() => setPage("cart")}>Cart</button>
+    </FooterComponent>
+  );
 }
 
 export default Footer;

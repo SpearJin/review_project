@@ -20,7 +20,8 @@ const Image = styled.img`
   height: 150px;
 `;
 
-function ProductInfo({ img, name, price, onClick }) {
+function ProductInfo({ data, onClick }) {
+  const { img, name, price } = data;
   return (
     <InfoComponent onClick={onClick}>
       <Image src={img} />
