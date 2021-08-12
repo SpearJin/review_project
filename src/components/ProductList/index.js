@@ -40,10 +40,11 @@ const ListComponent = styled.div`
 
 function ProductList() {
   const [detailProduct, setDetailProduct] = useState(null);
+  const [productList, setProductList] = useState(datas);
 
   return (
     <ListComponent>
-      {datas.map((data) => (
+      {productList.map((data) => (
         <ProductInfo data={data} onClick={() => setDetailProduct(data)} />
       ))}
 
@@ -51,6 +52,8 @@ function ProductList() {
         <ProductDetail
           detailProduct={detailProduct}
           setDetailProduct={setDetailProduct}
+          productList={productList}
+          setProductList={setProductList}
         />
       )}
     </ListComponent>

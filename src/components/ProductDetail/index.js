@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import addComma from "../../util/addComma";
 
@@ -46,8 +47,16 @@ const CancleBtn = styled.button`
   background-color: rgba(0, 0, 0, 0.3);
 `;
 
-function ProductDetail({ detailProduct, setDetailProduct }) {
+function ProductDetail({ detailProduct, setDetailProduct, setProductList }) {
   const isDisplayNone = detailProduct === null;
+
+  const onDeleteHandle = () => {
+    setProductList((state) =>
+      state.filter((item) => item._id !== detailProduct._id)
+    );
+    setDetailProduct(null);
+  };
+
   return (
     <>
       <DetailComponent isDisplsyNone={isDisplayNone}>
@@ -56,6 +65,10 @@ function ProductDetail({ detailProduct, setDetailProduct }) {
           <div>{detailProduct.name}</div>
           <div>{detailProduct.detail}</div>
           <div>{addComma(detailProduct.price)}원</div>
+          <div>
+            <button>수정</button>
+            <button onClick={onDeleteHandle}>삭제</button>
+          </div>
         </ProductInfo>
         <CancleBtn onClick={() => setDetailProduct(null)}>X</CancleBtn>
       </DetailComponent>
