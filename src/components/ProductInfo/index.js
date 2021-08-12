@@ -1,10 +1,12 @@
 import styled from "styled-components";
-import deskImg from "../../images/desk.jpeg";
+import addComma from "../../util/addComma";
 
 const InfoComponent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px 20px;
+  cursor: pointer;
   & > .info__description {
     display: flex;
     flex-direction: column;
@@ -13,13 +15,18 @@ const InfoComponent = styled.div`
   }
 `;
 
-function ProductInfo() {
+const Image = styled.img`
+  width: 150px;
+  height: 150px;
+`;
+
+function ProductInfo({ img, name, price }) {
   return (
     <InfoComponent>
-      <img src={deskImg} />
+      <Image src={img} />
       <div className="info__description">
-        <span>책상</span>
-        <span>30000원</span>
+        <span>{name}</span>
+        <span>{addComma(price)}원</span>
       </div>
     </InfoComponent>
   );

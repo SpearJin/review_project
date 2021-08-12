@@ -2,14 +2,14 @@ import Cart from "./components/Cart";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import ProductInfo from "./components/ProductInfo";
+import ProductList from "./components/ProductList";
 
 function App() {
   return (
     <div>
       <Header />
       {/* <Cart /> */}
-      <ProductInfo />
+      <ProductList />
       <Footer />
     </div>
   );
