@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import addComma from "../util/addComma";
+import addComma from "../../util/addComma";
 
 const ProductComponent = styled.div`
   padding: 10px;

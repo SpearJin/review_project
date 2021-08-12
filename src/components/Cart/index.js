@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
-import addComma from "../util/addComma";
-import Product from "./Product";
+import addComma from "../../util/addComma";
+import Product from "../Product";
 
 const CartComponent = styled.div`
   display: flex;
