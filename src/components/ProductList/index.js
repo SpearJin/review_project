@@ -8,21 +8,21 @@ import { useState } from "react";
 
 const datas = [
   {
-    _id: 1,
+    _id: 88,
     img: deskImg,
     name: "책상",
     detail: "상세정보",
     price: 30000,
   },
   {
-    _id: 2,
+    _id: 99,
     img: notebookImg,
     name: "노트북",
     detail: "상세정보",
     price: 1000000,
   },
   {
-    _id: 3,
+    _id: 77,
     img: mouseImg,
     name: "마우스",
     detail: "상세정보",
@@ -35,6 +35,7 @@ const ListComponent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   height: calc(100vh - 100px);
 `;
 

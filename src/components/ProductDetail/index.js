@@ -84,6 +84,19 @@ function ProductDetail({ detailProduct, setDetailProduct, setProductList }) {
 
   const isDisplayNone = detailProduct === null;
 
+  const onCreateHanlde = () => {
+    setProductList((state) => [
+      ...state,
+      {
+        _id: Math.floor(Math.random() * 10) + 1,
+        name,
+        detail,
+        price,
+      },
+    ]);
+    setDetailProduct(null);
+  };
+
   const onUpdateHandler = () => {
     setProductList((state) =>
       state.map((item) => {
@@ -115,6 +128,7 @@ function ProductDetail({ detailProduct, setDetailProduct, setProductList }) {
       <div>{detailProduct.detail}</div>
       <div>{addComma(detailProduct.price)}원</div>
       <div>
+        <DetailBtn onClick={() => setCurrentSate("create")}>추가</DetailBtn>
         <DetailBtn onClick={() => setCurrentSate("update")}>수정</DetailBtn>
         <DetailBtn onClick={onDeleteHandle}>삭제</DetailBtn>
       </div>
@@ -148,11 +162,33 @@ function ProductDetail({ detailProduct, setDetailProduct, setProductList }) {
     </>
   );
 
+  const createDetail = (
+    <>
+      <InputDetail>
+        <input placeholder="이미지" onChange={(e) => setImg(e.target.value)} />
+        <input placeholder="상품명" onChange={(e) => setName(e.target.value)} />
+        <input
+          placeholder="상품설명"
+          onChange={(e) => setDetail(e.target.value)}
+        />
+        <input placeholder="가격" onChange={(e) => setPrice(e.target.value)} />
+      </InputDetail>
+      <div>
+        <DetailBtn onClick={onCreateHanlde}>완료</DetailBtn>
+        <DetailBtn onClick={() => setCurrentSate("none")}>취소</DetailBtn>
+      </div>
+    </>
+  );
+
   return (
     <>
       <DetailComponent isDisplsyNone={isDisplayNone}>
         <ProductInfo>
-          {currentSate === "update" ? udapteDetail : divDetail}
+          {currentSate === "update"
+            ? udapteDetail
+            : currentSate === "create"
+            ? createDetail
+            : divDetail}
         </ProductInfo>
         <CancleBtn onClick={() => setDetailProduct(null)}>X</CancleBtn>
       </DetailComponent>
