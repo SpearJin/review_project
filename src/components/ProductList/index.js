@@ -45,14 +45,17 @@ function ProductList() {
   return (
     <ListComponent>
       {productList.map((data) => (
-        <ProductInfo data={data} onClick={() => setDetailProduct(data)} />
+        <ProductInfo
+          key={data._id}
+          data={data}
+          onClick={() => setDetailProduct(data)}
+        />
       ))}
 
       {detailProduct !== null && (
         <ProductDetail
           detailProduct={detailProduct}
           setDetailProduct={setDetailProduct}
-          productList={productList}
           setProductList={setProductList}
         />
       )}
