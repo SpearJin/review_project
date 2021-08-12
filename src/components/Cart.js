@@ -1,38 +1,28 @@
 import { useState } from "react";
 import styled from "styled-components";
+import Product from "./Product";
 
 function Cart() {
-  const [quentity, setQuentity] = useState(5);
-  const price = quentity * 30000;
-
   const CartComponent = styled.div`
-    padding: 10px;
-    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
   `;
 
-  const onIncrease = () => {
-    if (quentity < 9) {
-      setQuentity(quentity + 1);
-    }
-  };
-
-  const onDecrease = () => {
-    if (quentity > 0) {
-      setQuentity(quentity - 1);
-    }
-  };
+  const ProductWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  `;
 
   return (
     <CartComponent>
-      <span>책상</span>
-      <button onClick={onDecrease}>
-        <i className="fas fa-minus-square"></i>
-      </button>
-      <span>{quentity}</span>
-      <button onClick={onIncrease}>
-        <i className="fas fa-plus-square"></i>
-      </button>
-      <span>{price}</span>
+      <ProductWrapper>
+        <Product name="책상" unitPrice={30000} />
+        <Product name="노트북" unitPrice={1000000} />
+        <Product name="마우스" unitPrice={50000} />
+      </ProductWrapper>
     </CartComponent>
   );
 }
