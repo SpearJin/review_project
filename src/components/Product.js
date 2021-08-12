@@ -24,10 +24,10 @@ const ProductComponent = styled.div`
   }
 `;
 
-function Product({ name, unitPrice }) {
+function Product({ name, unitPrice, setTotalPrice }) {
   const [quentity, setQuentity] = useState(5);
   const price = quentity * unitPrice;
-
+  setTotalPrice(price);
   const onIncrease = () => {
     if (quentity < 9) {
       setQuentity(quentity + 1);
