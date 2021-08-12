@@ -7,7 +7,7 @@ const CartComponent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 100px);
 `;
 
 const ProductWrapper = styled.div`

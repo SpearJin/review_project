@@ -3,6 +3,10 @@
   user-select: none;
 }
 
+body {
+  margin: 0;
+}
+
 button {
   border: none;
   background-color: transparent;
